@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Posts on Refaldy Blog</title>
+    <link>http://localhost:1313/posts/</link>
+    <description>Recent content in Posts on Refaldy Blog</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <copyright>© Refaldy</copyright>
+    <lastBuildDate>Fri, 22 Mar 2024 00:00:00 +0000</lastBuildDate>
+    <atom:link href="http://localhost:1313/posts/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Youtube Download With Golang</title>
+      <link>http://localhost:1313/posts/ytdl-go/</link>
+      <pubDate>Fri, 22 Mar 2024 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/posts/ytdl-go/</guid>
+      <description>Hai, Saya Mempunyai Library Untuk Download Video Atau Audio Dari Link Youtube.&#xA;Saya Mendapat Source Dari y2mate.com.&#xA;Anda Bisa Melihat Source Saya Di Sini.&#xA;Cara Menggunakan 1. Install Lib go get -u github.com/refaldyrk/ytdl-go 2. Mulai package main import ( &amp;#34;encoding/json&amp;#34; &amp;#34;fmt&amp;#34; &amp;#34;github.com/refaldyrk/ytdl-go/service&amp;#34; ) func main() { yt := service.NewYtdl() result, err := yt.DetailVideo(&amp;#34;https://www.youtube.com/watch?v=yC6e7lY8BWQ&amp;#34;) if err != nil { fmt.Println(err) } //Handle Mp4 for _, v := range result.Links.Mp4 { data := map[string]string{} //Marshal byteJson, _ := json.</description>
+    </item>
+  </channel>
+</rss>

@@ -1,0 +1,42 @@
+baseURL = "https://blogsrefaldy.pages.dev/"
+languageCode = "en-us"
+title = "Refaldy Blog"
+theme="archie"
+copyright = "© Refaldy"
+pygmentsstyle = "monokai"
+pygmentscodefences = true
+pygmentscodefencesguesssyntax = true
+[params]
+	mode="auto"
+	useCDN=false
+	subtitle = "Personal Blog"
+
+[[params.social]]
+name = "GitHub"
+icon = "github"
+url = "https://github.com/refaldyrk"
+
+[[params.social]]
+name = "Twitter"
+icon = "twitter"
+url = "https://twitter.com/nothinghehe10"
+
+[[menu.main]]
+name = "Home"
+url = "/"
+weight = 1
+
+[[menu.main]]
+name = "All posts"
+url = "/posts"
+weight = 2
+
+[[menu.main]]
+name = "About"
+url = "/about"
+weight = 3
+
+[[menu.main]]
+name = "Tags"
+url = "/tags"
+weight = 4
