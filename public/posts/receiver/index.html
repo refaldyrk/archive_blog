@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html><head lang="en"><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script>
+	<meta charset="utf-8" />
+	<meta http-equiv="X-UA-Compatible" content="IE=edge"><title>Value Receiver Vs Pointer Receiver - Refaldy Blog</title><meta name="viewport" content="width=device-width, initial-scale=1">
+	<meta name="description" content="Apa Bedanya Value Receiver dan Pointer Receiver?" />
+	<meta property="og:image" content=""/>
+	<meta property="og:title" content="Value Receiver Vs Pointer Receiver" />
+<meta property="og:description" content="Apa Bedanya Value Receiver dan Pointer Receiver?" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="http://localhost:1313/posts/receiver/" /><meta property="article:section" content="posts" />
+<meta property="article:published_time" content="2024-03-23T00:00:00+00:00" />
+<meta property="article:modified_time" content="2024-03-23T00:00:00+00:00" />
+<meta name="twitter:card" content="summary"/><meta name="twitter:title" content="Value Receiver Vs Pointer Receiver"/>
+<meta name="twitter:description" content="Apa Bedanya Value Receiver dan Pointer Receiver?"/>
+<script src="http://localhost:1313/js/feather.min.js"></script>
+	
+	
+        <link href="http://localhost:1313/css/fonts.11a1877508139eac0b5b4852ceb110c35641b3533321e66e39149e901ed5756b.css" rel="stylesheet">
+	
+
+	
+	<link rel="stylesheet" type="text/css" media="screen" href="http://localhost:1313/css/main.d902908ac6e0fab67957de5db5aea1b6455b19ae2ca98eac4c95a4a0fdc02238.css" />
+		<link id="darkModeStyle" rel="stylesheet" type="text/css" href="http://localhost:1313/css/dark.c95c5dcf5f32f8b67bd36f7dab66680e068fce2b303087294114aabf7a7c080b.css" media="(prefers-color-scheme: dark)"  />
+	
+
+	
+	
+
+	
+	
+	
+	
+</head>
+<body>
+        <div class="content"><header>
+	<div class="main">
+		<a href="http://localhost:1313/">Refaldy Blog</a>
+	</div>
+	<nav>
+		
+		<a href="/">Home</a>
+		
+		<a href="/posts">All posts</a>
+		
+		<a href="/about">About</a>
+		
+		<a href="/tags">Tags</a>
+		
+		
+	</nav>
+</header>
+
+<main>
+	<article>
+		<div class="title">
+			<h1 class="title">Value Receiver Vs Pointer Receiver</h1>
+			<div class="meta">Posted on Mar 23, 2024</div>
+		</div>
+		
+
+		<section class="body">
+			<p>Hi Gophers, Di kesempatan kali ini saya akan membahas apa itu Value Receiver Dan Pointer Receiver.</p>
+<p>Saat kita membuat method di golang pasti kita akan membuat receiver namun, seringkali tidak tau ingin menggunakan</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-go" data-lang="go"><span style="display:flex;"><span><span style="color:#66d9ef">func</span> (<span style="color:#a6e22e">r</span> <span style="color:#a6e22e">receiver</span>) <span style="color:#a6e22e">name</span>() {}
+</span></span></code></pre></div><p>Atau</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-go" data-lang="go"><span style="display:flex;"><span><span style="color:#66d9ef">func</span> (<span style="color:#a6e22e">r</span> <span style="color:#f92672">*</span><span style="color:#a6e22e">receiver</span>) <span style="color:#a6e22e">name</span>() {}
+</span></span></code></pre></div><ul>
+<li>Ada yang tau bedanya apa?</li>
+</ul>
+<p>Nah disini kita akan bahas apa bedanya value receiver dan pointer receiver.</p>
+<h2 id="value-receiver">Value Receiver</h2>
+<p>Pertama kita bakal kenalan dulu sama <em>Value Receiver</em>.</p>
+<ul>
+<li>Contoh code value receiver</li>
+</ul>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-go" data-lang="go"><span style="display:flex;"><span><span style="color:#66d9ef">type</span> <span style="color:#a6e22e">Data</span> <span style="color:#66d9ef">struct</span> {
+</span></span><span style="display:flex;"><span>    <span style="color:#a6e22e">name</span> <span style="color:#66d9ef">string</span>
+</span></span><span style="display:flex;"><span>}
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">func</span> (<span style="color:#a6e22e">r</span> <span style="color:#a6e22e">receiver</span>) <span style="color:#a6e22e">name</span>() {
+</span></span><span style="display:flex;"><span>    <span style="color:#a6e22e">r</span>.<span style="color:#a6e22e">name</span> = <span style="color:#e6db74">&#34;Jane Doe&#34;</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#a6e22e">fmt</span>.<span style="color:#a6e22e">Println</span>(<span style="color:#a6e22e">r</span>.<span style="color:#a6e22e">name</span>) <span style="color:#75715e">// Jane Doe
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>}
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">func</span> <span style="color:#a6e22e">main</span>() {
+</span></span><span style="display:flex;"><span>    <span style="color:#a6e22e">data</span> <span style="color:#f92672">:=</span> <span style="color:#a6e22e">Data</span>{
+</span></span><span style="display:flex;"><span>        <span style="color:#a6e22e">name</span>: <span style="color:#e6db74">&#34;John&#34;</span>,
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>    
+</span></span><span style="display:flex;"><span>    <span style="color:#a6e22e">data</span>.<span style="color:#a6e22e">name</span>() <span style="color:#75715e">// Jane Doe
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>    <span style="color:#a6e22e">fmt</span>.<span style="color:#a6e22e">Println</span>(<span style="color:#a6e22e">data</span>.<span style="color:#a6e22e">name</span>) <span style="color:#75715e">// John
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>}
+</span></span></code></pre></div><p>Ketika sebuah method memiliki receiver dengan tipe nilai, maka saat method tersebut dipanggil, nilai tersebut akan disalin. Ini berarti bahwa method tersebut tidak dapat mengubah nilai dari struktur data asli yang diterima sebagai receiver. Perubahan yang terjadi pada struktur data tersebut hanya berlaku di dalam lingkup method dan tidak memengaruhi struktur data asli.</p>
+<h2 id="pointer-receiver">Pointer Receiver</h2>
+<p>Selanjutnya kita kenalan dengan <em>Pointer Receiver</em>.</p>
+<ul>
+<li>Contoh code pointer receiver</li>
+</ul>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-go" data-lang="go"><span style="display:flex;"><span><span style="color:#66d9ef">type</span> <span style="color:#a6e22e">Data</span> <span style="color:#66d9ef">struct</span> {
+</span></span><span style="display:flex;"><span>    <span style="color:#a6e22e">name</span> <span style="color:#66d9ef">string</span>
+</span></span><span style="display:flex;"><span>}
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">func</span> (<span style="color:#a6e22e">r</span> <span style="color:#f92672">*</span><span style="color:#a6e22e">receiver</span>) <span style="color:#a6e22e">name</span>() {
+</span></span><span style="display:flex;"><span>    <span style="color:#a6e22e">r</span>.<span style="color:#a6e22e">name</span> = <span style="color:#e6db74">&#34;Jane Doe&#34;</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#a6e22e">fmt</span>.<span style="color:#a6e22e">Println</span>(<span style="color:#a6e22e">r</span>.<span style="color:#a6e22e">name</span>) <span style="color:#75715e">// Jane Doe
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>}
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">func</span> <span style="color:#a6e22e">main</span>() {
+</span></span><span style="display:flex;"><span>    <span style="color:#a6e22e">data</span> <span style="color:#f92672">:=</span> <span style="color:#a6e22e">Data</span>{
+</span></span><span style="display:flex;"><span>        <span style="color:#a6e22e">name</span>: <span style="color:#e6db74">&#34;John&#34;</span>,
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>    
+</span></span><span style="display:flex;"><span>    <span style="color:#a6e22e">data</span>.<span style="color:#a6e22e">name</span>() <span style="color:#75715e">// Jane Doe
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>    <span style="color:#a6e22e">fmt</span>.<span style="color:#a6e22e">Println</span>(<span style="color:#a6e22e">data</span>.<span style="color:#a6e22e">name</span>) <span style="color:#75715e">// Jane Doe
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>}
+</span></span></code></pre></div><p>etika sebuah method memiliki receiver dengan tipe pointer, method tersebut dapat mengubah nilai dari struktur data asli yang diterima sebagai receiver. Dalam hal ini, method memiliki akses langsung ke lokasi memori dari struktur data asli, sehingga perubahan yang dilakukan akan mempengaruhi struktur data tersebut secara global.</p>
+<h2 id="gunakan-yang-mana-dong">Gunakan Yang Mana Dong?</h2>
+<p>Disaat kita harus mengubah value receiver secara global kita gunakan <em>Pointer Receiver</em>
+Jika Tidak Gunakan <em>Value Receiver</em></p>
+<p>Thanks 🍺</p>
+
+		</section>
+
+		<div class="post-tags">
+			
+			
+			<nav class="nav tags">
+				<ul class="tags">
+					
+					<li><a href="/tags/go">go</a></li>
+					
+					<li><a href="/tags/golang">golang</a></li>
+					
+				</ul>
+			</nav>
+			
+			
+		</div>
+		</article>
+</main>
+<footer>
+  <div style="display:flex"><a class="soc" href="https://github.com/refaldyrk" rel="me" title="GitHub"><i data-feather="github"></i></a>
+    <a class="border"></a><a class="soc" href="https://twitter.com/nothinghehe10" rel="me" title="Twitter"><i data-feather="twitter"></i></a>
+    <a class="border"></a></div>
+  <div class="footer-info">
+    2024  © Refaldy |  <a
+      href="https://github.com/athul/archie">Archie Theme</a> | Built with <a href="https://gohugo.io">Hugo</a>
+  </div>
+</footer>
+<script>
+  feather.replace()
+</script></div>
+    </body>
+</html>
