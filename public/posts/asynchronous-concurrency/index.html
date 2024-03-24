@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html><head lang="en"><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script>
+	<meta charset="utf-8" />
+	<meta http-equiv="X-UA-Compatible" content="IE=edge"><title>Asynchronous != Concurrency - Refaldy Blog</title><meta name="viewport" content="width=device-width, initial-scale=1">
+	<meta name="description" content="Membedah Perbedaan Asynchronous dan Concurrency" />
+	<meta property="og:image" content=""/>
+	<meta property="og:title" content="Asynchronous != Concurrency" />
+<meta property="og:description" content="Membedah Perbedaan Asynchronous dan Concurrency" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="http://localhost:1313/posts/asynchronous-concurrency/" /><meta property="article:section" content="posts" />
+<meta property="article:published_time" content="2024-03-24T00:00:00+00:00" />
+<meta property="article:modified_time" content="2024-03-24T00:00:00+00:00" />
+<meta name="twitter:card" content="summary"/><meta name="twitter:title" content="Asynchronous != Concurrency"/>
+<meta name="twitter:description" content="Membedah Perbedaan Asynchronous dan Concurrency"/>
+<script src="http://localhost:1313/js/feather.min.js"></script>
+	
+	
+        <link href="http://localhost:1313/css/fonts.11a1877508139eac0b5b4852ceb110c35641b3533321e66e39149e901ed5756b.css" rel="stylesheet">
+	
+
+	
+	<link rel="stylesheet" type="text/css" media="screen" href="http://localhost:1313/css/main.d902908ac6e0fab67957de5db5aea1b6455b19ae2ca98eac4c95a4a0fdc02238.css" />
+		<link id="darkModeStyle" rel="stylesheet" type="text/css" href="http://localhost:1313/css/dark.c95c5dcf5f32f8b67bd36f7dab66680e068fce2b303087294114aabf7a7c080b.css" media="(prefers-color-scheme: dark)"  />
+	
+
+	
+	
+
+	
+	
+	
+	
+</head>
+<body>
+        <div class="content"><header>
+	<div class="main">
+		<a href="http://localhost:1313/">Refaldy Blog</a>
+	</div>
+	<nav>
+		
+		<a href="/">Home</a>
+		
+		<a href="/posts">All posts</a>
+		
+		<a href="/about">About</a>
+		
+		<a href="/tags">Tags</a>
+		
+		
+	</nav>
+</header>
+
+<main>
+	<article>
+		<div class="title">
+			<h1 class="title">Asynchronous != Concurrency</h1>
+			<div class="meta">Posted on Mar 24, 2024</div>
+		</div>
+		
+
+		<section class="body">
+			<p><strong>Asynchronous != Concurrency</strong></p>
+<p>Hi Gophers,
+Sebagai seorang developer backend dengan bahasa pemrograman Go, Anda terus berhadapan dengan kebutuhan untuk mengelola operasi-operasi yang membutuhkan waktu dan menangani banyak permintaan secara bersamaan. Dalam dunia pemrograman modern, terdapat dua konsep yang sering kali menjadi pusat perhatian: Asynchronous dan Concurrency. Dalam artikel ini, kita akan menjelajahi perbedaan mendasar antara keduanya serta menggali bagaimana kedua konsep ini berperan dalam pengembangan aplikasi backend menggunakan Go.</p>
+<h3 id="apa-itu-asynchronous-programming">Apa itu Asynchronous Programming?</h3>
+<p>Asynchronous programming adalah teknik di mana beberapa tugas dapat dieksekusi secara bersamaan tanpa harus menunggu satu sama lain. Dalam konteks Go, ini biasanya dicapai melalui fitur-fitur seperti goroutines dan channels. Dengan menggunakan asynchronous programming, aplikasi dapat terus menjalankan operasi-operasi yang membutuhkan waktu seperti I/O tanpa harus menghentikan eksekusi program. Ini sangat penting dalam menjaga responsifitas aplikasi, terutama ketika ada tugas-tugas yang memerlukan waktu seperti mengambil data dari database atau melakukan permintaan ke server eksternal.</p>
+<h3 id="apa-itu-concurrency">Apa itu Concurrency?</h3>
+<p>Concurrency adalah kemampuan sebuah program untuk menangani banyak tugas secara bersamaan. Dalam Go, concurrency sering kali diimplementasikan menggunakan goroutines, yang merupakan lightweight thread yang dikelola oleh runtime Go. Melalui penggunaan goroutines dan fitur-fitur lain seperti mutex dan waitgroups, Anda dapat membuat aplikasi Anda mampu menangani banyak permintaan secara bersamaan dengan cara yang efisien. Concurrency penting dalam memastikan aplikasi backend Anda dapat bersifat responsif dan dapat menangani beban yang tinggi tanpa mengorbankan performa.</p>
+<h3 id="perbedaan-utama">Perbedaan Utama</h3>
+<p>Perbedaan mendasar antara asynchronous programming dan concurrency terletak pada fokus utamanya. Asynchronous programming berkaitan dengan cara menangani tugas-tugas yang membutuhkan waktu, sementara concurrency berkaitan dengan kemampuan program untuk menangani banyak tugas secara bersamaan, yang mungkin tidak selalu terkait dengan waktu eksekusi.</p>
+<p><strong>Concurrency:</strong></p>
+<ul>
+<li>Menjalankan multiple tasks secara bersamaan.</li>
+<li>Tasks dapat dieksekusi secara paralel, bergantian, atau kombinasi keduanya.</li>
+<li>Thread utama dapat diblokir saat menunggu tasks selesai.</li>
+</ul>
+<p><strong>Asynchronous:</strong></p>
+<ul>
+<li>Menjalankan tasks tanpa memblokir thread utama.</li>
+<li>Thread utama dapat terus berjalan saat menunggu tasks selesai.</li>
+<li>Tasks dapat dijalankan secara paralel, bergantian, atau kombinasi keduanya.</li>
+</ul>
+<h3 id="contoh-implementasi-dalam-go">Contoh Implementasi dalam Go</h3>
+<p>Dalam Go, asynchronous programming dan concurrency dapat diimplementasikan dengan cara yang berbeda tergantung pada kebutuhan aplikasi Anda. Contoh implementasi asynchronous programming dalam Go termasuk penggunaan goroutines untuk melakukan operasi I/O tanpa memblokir eksekusi program. Sementara itu, contoh implementasi concurrency dapat mencakup penggunaan goroutines dan channel untuk menangani banyak permintaan HTTP secara bersamaan.</p>
+<p><strong>Concurrency</strong></p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-go" data-lang="go"><span style="display:flex;"><span><span style="color:#66d9ef">func</span> <span style="color:#a6e22e">main</span>() {
+</span></span><span style="display:flex;"><span>  <span style="color:#75715e">// Menjalankan dua goroutines secara bersamaan
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>  <span style="color:#66d9ef">go</span> <span style="color:#66d9ef">func</span>() {
+</span></span><span style="display:flex;"><span>    <span style="color:#75715e">// ...
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>  }()
+</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">go</span> <span style="color:#66d9ef">func</span>() {
+</span></span><span style="display:flex;"><span>    <span style="color:#75715e">// ...
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>  }()
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>  <span style="color:#75715e">// Menunggu kedua goroutines selesai
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>  <span style="color:#a6e22e">time</span>.<span style="color:#a6e22e">Sleep</span>(<span style="color:#a6e22e">time</span>.<span style="color:#a6e22e">Second</span>)
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></div><p><strong>Asynchronous</strong></p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-go" data-lang="go"><span style="display:flex;"><span><span style="color:#66d9ef">func</span> <span style="color:#a6e22e">main</span>() {
+</span></span><span style="display:flex;"><span>  <span style="color:#75715e">// Membuat channel untuk menampung hasil
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>  <span style="color:#a6e22e">results</span> <span style="color:#f92672">:=</span> make(<span style="color:#66d9ef">chan</span> <span style="color:#66d9ef">int</span>)
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>  <span style="color:#75715e">// Menjalankan goroutine untuk menghitung nilai
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>  <span style="color:#66d9ef">go</span> <span style="color:#66d9ef">func</span>() {
+</span></span><span style="display:flex;"><span>    <span style="color:#a6e22e">results</span> <span style="color:#f92672">&lt;-</span> <span style="color:#a6e22e">calculate</span>()
+</span></span><span style="display:flex;"><span>  }()
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>  <span style="color:#75715e">// Mendapatkan hasil dari channel
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>  <span style="color:#a6e22e">result</span> <span style="color:#f92672">:=</span> <span style="color:#f92672">&lt;-</span><span style="color:#a6e22e">results</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>  <span style="color:#75715e">// ...
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>}
+</span></span></code></pre></div><h3 id="pentingnya-memahami-perbedaan-ini">Pentingnya Memahami Perbedaan Ini</h3>
+<h3 id="manfaat-concurrency">Manfaat Concurrency:</h3>
+<ul>
+<li>Meningkatkan performa program dengan menjalankan multiple tasks secara bersamaan.</li>
+<li>Meningkatkan scalability program dengan memungkinkan program untuk menangani lebih banyak requests.</li>
+<li>Memanfaatkan resources hardware secara maksimal.</li>
+</ul>
+<h3 id="kekurangan-concurrency">Kekurangan Concurrency:</h3>
+<ul>
+<li>Kompleksitas code meningkat karena perlu mengelola multiple tasks secara bersamaan.</li>
+<li>Potensi terjadinya race conditions dan data inconsistency.</li>
+<li>Membutuhkan debugging yang lebih kompleks.</li>
+</ul>
+<h3 id="manfaat-asynchronous">Manfaat Asynchronous:</h3>
+<ul>
+<li>Meningkatkan responsiveness program karena thread utama tidak diblokir saat menunggu tasks selesai.</li>
+<li>Meningkatkan user experience karena program tetap responsif saat melakukan operasi yang memakan waktu lama.</li>
+<li>Memudahkan implementasi event-driven programming.</li>
+</ul>
+<h3 id="kekurangan-asynchronous">Kekurangan Asynchronous:</h3>
+<ul>
+<li>Kompleksitas code meningkat karena perlu mengelola channels, callbacks, dan constructs lainnya.</li>
+<li>Potensi terjadinya memory leaks jika channels tidak di manage dengan benar.</li>
+<li>Membutuhkan debugging yang lebih kompleks.</li>
+</ul>
+<h3 id="libraries-dan-tools-untuk-asynchronous-dan-concurrency">Libraries dan Tools untuk Asynchronous dan Concurrency:</h3>
+<ol>
+<li>Goroutines: Lightweight threads yang disediakan oleh Golang untuk menjalankan tasks secara bersamaan.</li>
+<li>Channels: Digunakan untuk komunikasi antar goroutines.</li>
+<li>Sync package: Menyediakan berbagai constructs untuk synchronizing goroutines.</li>
+<li>Context package: Digunakan untuk membatalkan operasi asynchronous.</li>
+</ol>
+<h3 id="contoh-kode-yang-lebih-kompleks">Contoh Kode yang Lebih Kompleks:</h3>
+<ul>
+<li>Implementasi web server asynchronous dengan Golang.</li>
+<li>Implementasi worker pool untuk menjalankan tasks secara asynchronous.</li>
+<li>Implementasi event-driven programming dengan Golang.</li>
+</ul>
+<h3 id="kesimpulan">Kesimpulan</h3>
+<p>Dalam dunia pemrograman modern, asynchronous programming dan concurrency adalah dua konsep yang sangat penting, terutama dalam pengembangan aplikasi backend menggunakan Go. Meskipun sering kali dianggap sama atau saling tergantikan, kedua konsep ini memiliki perbedaan yang signifikan dan mempengaruhi bagaimana kita merancang dan mengembangkan aplikasi. Dengan memahami perbedaan dan peran masing-masing konsep ini, Anda dapat membuat keputusan yang lebih baik dalam merancang arsitektur aplikasi backend Anda dan meningkatkan kualitas serta performa aplikasi yang Anda kembangkan.</p>
+
+		</section>
+
+		<div class="post-tags">
+			
+			
+			<nav class="nav tags">
+				<ul class="tags">
+					
+					<li><a href="/tags/go">go</a></li>
+					
+					<li><a href="/tags/golang">golang</a></li>
+					
+				</ul>
+			</nav>
+			
+			
+		</div>
+		</article>
+</main>
+<footer>
+  <div style="display:flex"><a class="soc" href="https://github.com/refaldyrk" rel="me" title="GitHub"><i data-feather="github"></i></a>
+    <a class="border"></a><a class="soc" href="https://twitter.com/nothinghehe10" rel="me" title="Twitter"><i data-feather="twitter"></i></a>
+    <a class="border"></a></div>
+  <div class="footer-info">
+    2024  © Refaldy |  <a
+      href="https://github.com/athul/archie">Archie Theme</a> | Built with <a href="https://gohugo.io">Hugo</a>
+  </div>
+</footer>
+<script>
+  feather.replace()
+</script></div>
+    </body>
+</html>

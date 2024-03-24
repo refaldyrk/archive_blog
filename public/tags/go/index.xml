@@ -7,14 +7,21 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <copyright>© Refaldy</copyright>
-    <lastBuildDate>Fri, 22 Mar 2024 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Sun, 24 Mar 2024 00:00:00 +0000</lastBuildDate>
     <atom:link href="http://localhost:1313/tags/go/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Asynchronous != Concurrency</title>
+      <link>http://localhost:1313/posts/asynchronous-concurrency/</link>
+      <pubDate>Sun, 24 Mar 2024 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/posts/asynchronous-concurrency/</guid>
+      <description>Asynchronous != Concurrency: Membedah Perbedaan dan Pentingnya Dalam Pemrograman Sebagai seorang pengembang backend dengan bahasa pemrograman Go, Anda terus berhadapan dengan kebutuhan untuk mengelola operasi-operasi yang membutuhkan waktu dan menangani banyak permintaan secara bersamaan. Dalam dunia pemrograman modern, terdapat dua konsep yang sering kali menjadi pusat perhatian: Asynchronous dan Concurrency. Dalam artikel ini, kita akan menjelajahi perbedaan mendasar antara keduanya serta menggali bagaimana kedua konsep ini berperan dalam pengembangan aplikasi backend menggunakan Go.</description>
+    </item>
     <item>
       <title>Value Receiver Vs Pointer Receiver</title>
       <link>http://localhost:1313/posts/receiver/</link>
-      <pubDate>Fri, 22 Mar 2024 00:00:00 +0000</pubDate>
+      <pubDate>Sat, 23 Mar 2024 00:00:00 +0000</pubDate>
       <guid>http://localhost:1313/posts/receiver/</guid>
-      <description>Hi Gophers, Di kesempatan kali ini saya akan membahas apa itu Value Receiver Dan Pointer Receiver.&#xA;Saat kita membuat method di golang pasti kita akan membuat receiver namun, seringkali tidak tau ingin menggunakan&#xA;func (r receiver) name() {} Atau&#xA;func (r *receiver) name() {} &amp;ndash; Ada yang tau bedanya apa?&#xA;Nah disini kita akan bahas apa bedanya value receiver dan pointer receiver.</description>
+      <description>Hi Gophers, Di kesempatan kali ini saya akan membahas apa itu Value Receiver Dan Pointer Receiver.&#xA;Saat kita membuat method di golang pasti kita akan membuat receiver namun, seringkali tidak tau ingin menggunakan&#xA;func (r receiver) name() {} Atau&#xA;func (r *receiver) name() {} Ada yang tau bedanya apa? Nah disini kita akan bahas apa bedanya value receiver dan pointer receiver.&#xA;Value Receiver Pertama kita bakal kenalan dulu sama Value Receiver.</description>
     </item>
     <item>
       <title>Youtube Download With Golang</title>
