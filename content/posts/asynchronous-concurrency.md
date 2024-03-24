@@ -71,7 +71,7 @@ func main() {
 ```
 
 ### Pentingnya Memahami Perbedaan Ini
-
+Pemahaman yang jelas tentang perbedaan antara asynchronous programming dan concurrency sangat penting dalam merancang dan mengembangkan aplikasi modern. Dengan memilih pendekatan yang tepat, kita dapat meningkatkan responsifitas, kinerja, dan skalabilitas aplikasi kita. Keduanya memiliki peran masing-masing dalam memastikan aplikasi kita dapat berjalan secara efisien dalam lingkungan yang berbeda.
 
 ### Manfaat Concurrency:
 
