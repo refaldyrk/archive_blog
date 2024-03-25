@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html><head lang="en"><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script>
+	<meta charset="utf-8" />
+	<meta http-equiv="X-UA-Compatible" content="IE=edge"><title>Short Polling, Long Polling, Websocket, dan Server-Sent Events - Refaldy Blog</title><meta name="viewport" content="width=device-width, initial-scale=1">
+	<meta name="description" content="Mengenal Teknik Komunikasi: Short Polling, Long Polling, Websocket, dan Server-Sent Events" />
+	<meta property="og:image" content=""/>
+	<meta property="og:title" content="Short Polling, Long Polling, Websocket, dan Server-Sent Events" />
+<meta property="og:description" content="Mengenal Teknik Komunikasi: Short Polling, Long Polling, Websocket, dan Server-Sent Events" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="http://localhost:1313/posts/communicate/" /><meta property="article:section" content="posts" />
+<meta property="article:published_time" content="2024-03-25T00:00:00+00:00" />
+<meta property="article:modified_time" content="2024-03-25T00:00:00+00:00" />
+<meta name="twitter:card" content="summary"/><meta name="twitter:title" content="Short Polling, Long Polling, Websocket, dan Server-Sent Events"/>
+<meta name="twitter:description" content="Mengenal Teknik Komunikasi: Short Polling, Long Polling, Websocket, dan Server-Sent Events"/>
+<script src="http://localhost:1313/js/feather.min.js"></script>
+	
+	
+        <link href="http://localhost:1313/css/fonts.11a1877508139eac0b5b4852ceb110c35641b3533321e66e39149e901ed5756b.css" rel="stylesheet">
+	
+
+	
+	<link rel="stylesheet" type="text/css" media="screen" href="http://localhost:1313/css/main.d902908ac6e0fab67957de5db5aea1b6455b19ae2ca98eac4c95a4a0fdc02238.css" />
+		<link id="darkModeStyle" rel="stylesheet" type="text/css" href="http://localhost:1313/css/dark.c95c5dcf5f32f8b67bd36f7dab66680e068fce2b303087294114aabf7a7c080b.css" media="(prefers-color-scheme: dark)"  />
+	
+
+	
+	
+
+	
+	
+	
+	
+</head>
+<body>
+        <div class="content"><header>
+	<div class="main">
+		<a href="http://localhost:1313/">Refaldy Blog</a>
+	</div>
+	<nav>
+		
+		<a href="/">Home</a>
+		
+		<a href="/posts">All posts</a>
+		
+		<a href="/about">About</a>
+		
+		<a href="/tags">Tags</a>
+		
+		
+	</nav>
+</header>
+
+<main>
+	<article>
+		<div class="title">
+			<h1 class="title">Short Polling, Long Polling, Websocket, dan Server-Sent Events</h1>
+			<div class="meta">Posted on Mar 25, 2024</div>
+		</div>
+		
+
+		<section class="body">
+			<p><strong>Pendahuluan:</strong>
+Dalam pengembangan aplikasi web modern, pemilihan teknik komunikasi yang tepat antara klien dan server sangat penting untuk memastikan responsivitas dan efisiensi. Dalam artikel ini, kita akan menjelajahi lebih dalam tentang berbagai teknik komunikasi di web, termasuk short polling, long polling, websocket, dan server-sent events (SSE), serta memahami kelebihan, kelemahan, dan penggunaan terbaik dari masing-masing teknik.</p>
+<p><strong>1. Short Polling:</strong>
+Short polling adalah teknik di mana klien secara berkala melakukan permintaan ke server untuk memeriksa apakah ada pembaruan data. Ini adalah pendekatan yang sederhana namun memiliki beberapa kekurangan.</p>
+<p><strong>Kelebihan Short Polling:</strong></p>
+<ul>
+<li>Sederhana untuk diimplementasikan.</li>
+<li>Cocok untuk aplikasi yang memerlukan pembaruan data yang tidak terlalu sering.</li>
+</ul>
+<p><strong>Kelemahan Short Polling:</strong></p>
+<ul>
+<li>Memiliki overhead karena klien terus-menerus mengirim permintaan bahkan jika tidak ada pembaruan.</li>
+<li>Tidak efisien untuk aplikasi yang memerlukan respons cepat atau komunikasi real-time.</li>
+</ul>
+<p><strong>2. Long Polling:</strong>
+Long polling adalah variasi dari short polling di mana server menahan respons dari permintaan klien hingga ada pembaruan data yang tersedia atau waktu tertentu telah berlalu. Teknik ini membantu mengurangi overhead karena klien tidak perlu terus-menerus melakukan permintaan.</p>
+<p><strong>Kelebihan Long Polling:</strong></p>
+<ul>
+<li>Mengurangi overhead karena klien tidak perlu terus-menerus melakukan permintaan.</li>
+<li>Cocok untuk aplikasi yang memerlukan pembaruan data yang tidak terlalu sering.</li>
+</ul>
+<p><strong>Kelemahan Long Polling:</strong></p>
+<ul>
+<li>Masih memiliki overhead karena klien harus membuat permintaan baru setelah menerima respons.</li>
+<li>Tidak cocok untuk aplikasi yang memerlukan respons cepat atau komunikasi real-time yang sebenarnya.</li>
+</ul>
+<p><strong>3. Websocket:</strong>
+Websocket adalah protokol komunikasi dua arah yang memungkinkan koneksi persisten dan real-time antara klien dan server. Ini adalah teknik yang sangat efisien untuk aplikasi yang memerlukan komunikasi real-time dan responsivitas tinggi.</p>
+<p><strong>Kelebihan Websocket:</strong></p>
+<ul>
+<li>Mendukung komunikasi dua arah antara klien dan server.</li>
+<li>Efisien dan responsif, tidak ada overhead terkait dengan pembuatan dan pemrosesan permintaan HTTP yang berulang-ulang.</li>
+</ul>
+<p><strong>Kelemahan Websocket:</strong></p>
+<ul>
+<li>Memerlukan dukungan khusus dari server dan klien.</li>
+<li>Tidak cocok untuk semua jenis aplikasi, terutama yang memerlukan komunikasi satu arah atau tidak terlalu sering.</li>
+</ul>
+<p><strong>4. Server-Sent Events (SSE):</strong>
+Server-Sent Events adalah teknologi yang memungkinkan server untuk mengirimkan pembaruan langsung kepada klien melalui koneksi HTTP. Ini adalah alternatif yang lebih sederhana untuk aplikasi yang memerlukan pembaruan satu arah dari server ke klien.</p>
+<p><strong>Kelebihan SSE:</strong></p>
+<ul>
+<li>Sederhana untuk diimplementasikan.</li>
+<li>Cocok untuk aplikasi yang memerlukan pembaruan satu arah dari server ke klien, seperti pemberitahuan atau streaming data.</li>
+</ul>
+<p><strong>Kelemahan SSE:</strong></p>
+<ul>
+<li>Tidak mendukung komunikasi dua arah seperti websocket.</li>
+<li>Tidak cocok untuk aplikasi yang memerlukan respons cepat atau interaksi aktif dari klien.</li>
+</ul>
+<p><strong>5. Memilih Teknik Komunikasi yang Tepat:</strong>
+Memilih teknik komunikasi yang tepat untuk aplikasi Anda bergantung pada sejumlah faktor, termasuk jenis aplikasi, tingkat responsivitas yang diperlukan, dan skala aplikasi. Berikut adalah beberapa panduan untuk membantu Anda memilih:</p>
+<ul>
+<li>Gunakan short polling untuk aplikasi yang memerlukan pembaruan data teratur dan tidak terlalu sering.</li>
+<li>Pertimbangkan long polling untuk mengurangi overhead jika aplikasi memerlukan pembaruan real-time namun tidak terlalu sering.</li>
+<li>Pilih websocket untuk aplikasi yang memerlukan komunikasi real-time dan responsivitas tinggi antara klien dan server.</li>
+<li>Gunakan server-sent events untuk aplikasi yang memerlukan pembaruan satu arah dari server ke klien dan tidak memerlukan komunikasi dua arah.</li>
+</ul>
+<p><strong>Kesimpulan:</strong>
+Memilih teknik komunikasi yang tepat antara klien dan server adalah langkah penting dalam pengembangan aplikasi web modern. Dengan memahami perbedaan, kelebihan, dan kelemahan dari masing-masing teknik komunikasi, Anda dapat memilih pendekatan yang paling sesuai dengan kebutuhan aplikasi Anda untuk memastikan responsivitas, efisiensi, dan kualitas pengalaman pengguna yang optimal.</p>
+<hr>
+
+		</section>
+
+		<div class="post-tags">
+			
+			
+			<nav class="nav tags">
+				<ul class="tags">
+					
+					<li><a href="/tags/communicate">communicate</a></li>
+					
+				</ul>
+			</nav>
+			
+			
+		</div>
+		</article>
+</main>
+<footer>
+  <div style="display:flex"><a class="soc" href="https://github.com/refaldyrk" rel="me" title="GitHub"><i data-feather="github"></i></a>
+    <a class="border"></a><a class="soc" href="https://twitter.com/nothinghehe10" rel="me" title="Twitter"><i data-feather="twitter"></i></a>
+    <a class="border"></a></div>
+  <div class="footer-info">
+    2024  © Refaldy |  <a
+      href="https://github.com/athul/archie">Archie Theme</a> | Built with <a href="https://gohugo.io">Hugo</a>
+  </div>
+</footer>
+<script>
+  feather.replace()
+</script></div>
+    </body>
+</html>

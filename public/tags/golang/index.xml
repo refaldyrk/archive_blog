@@ -14,7 +14,7 @@
       <link>http://localhost:1313/posts/asynchronous-concurrency/</link>
       <pubDate>Sun, 24 Mar 2024 00:00:00 +0000</pubDate>
       <guid>http://localhost:1313/posts/asynchronous-concurrency/</guid>
-      <description>Asynchronous != Concurrency: Membedah Perbedaan dan Pentingnya Dalam Pemrograman Sebagai seorang pengembang backend dengan bahasa pemrograman Go, Anda terus berhadapan dengan kebutuhan untuk mengelola operasi-operasi yang membutuhkan waktu dan menangani banyak permintaan secara bersamaan. Dalam dunia pemrograman modern, terdapat dua konsep yang sering kali menjadi pusat perhatian: Asynchronous dan Concurrency. Dalam artikel ini, kita akan menjelajahi perbedaan mendasar antara keduanya serta menggali bagaimana kedua konsep ini berperan dalam pengembangan aplikasi backend menggunakan Go.</description>
+      <description>Asynchronous != Concurrency&#xA;Hi Gophers, Sebagai seorang developer backend dengan bahasa pemrograman Go, Anda terus berhadapan dengan kebutuhan untuk mengelola operasi-operasi yang membutuhkan waktu dan menangani banyak permintaan secara bersamaan. Dalam dunia pemrograman modern, terdapat dua konsep yang sering kali menjadi pusat perhatian: Asynchronous dan Concurrency. Dalam artikel ini, kita akan menjelajahi perbedaan mendasar antara keduanya serta menggali bagaimana kedua konsep ini berperan dalam pengembangan aplikasi backend menggunakan Go.&#xA;Apa itu Asynchronous Programming?</description>
     </item>
     <item>
       <title>Value Receiver Vs Pointer Receiver</title>

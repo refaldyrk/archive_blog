@@ -8,6 +8,9 @@
     <loc>http://localhost:1313/posts/asynchronous-concurrency/</loc>
     <lastmod>2024-03-24T00:00:00+00:00</lastmod>
   </url><url>
+    <loc>http://localhost:1313/tags/communicate/</loc>
+    <lastmod>2024-03-24T00:00:00+00:00</lastmod>
+  </url><url>
     <loc>http://localhost:1313/tags/go/</loc>
     <lastmod>2024-03-24T00:00:00+00:00</lastmod>
   </url><url>
@@ -15,6 +18,9 @@
     <lastmod>2024-03-24T00:00:00+00:00</lastmod>
   </url><url>
     <loc>http://localhost:1313/posts/</loc>
+    <lastmod>2024-03-24T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>http://localhost:1313/posts/communicate/</loc>
     <lastmod>2024-03-24T00:00:00+00:00</lastmod>
   </url><url>
     <loc>http://localhost:1313/tags/</loc>

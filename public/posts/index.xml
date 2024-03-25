@@ -7,8 +7,15 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <copyright>© Refaldy</copyright>
-    <lastBuildDate>Sun, 24 Mar 2024 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Mon, 25 Mar 2024 00:00:00 +0000</lastBuildDate>
     <atom:link href="http://localhost:1313/posts/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Short Polling, Long Polling, Websocket, dan Server-Sent Events</title>
+      <link>http://localhost:1313/posts/communicate/</link>
+      <pubDate>Mon, 25 Mar 2024 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/posts/communicate/</guid>
+      <description>Pendahuluan: Dalam pengembangan aplikasi web modern, pemilihan teknik komunikasi yang tepat antara klien dan server sangat penting untuk memastikan responsivitas dan efisiensi. Dalam artikel ini, kita akan menjelajahi lebih dalam tentang berbagai teknik komunikasi di web, termasuk short polling, long polling, websocket, dan server-sent events (SSE), serta memahami kelebihan, kelemahan, dan penggunaan terbaik dari masing-masing teknik.&#xA;1. Short Polling: Short polling adalah teknik di mana klien secara berkala melakukan permintaan ke server untuk memeriksa apakah ada pembaruan data.</description>
+    </item>
     <item>
       <title>Asynchronous != Concurrency</title>
       <link>http://localhost:1313/posts/asynchronous-concurrency/</link>

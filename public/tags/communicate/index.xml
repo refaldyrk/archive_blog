@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Communicate on Refaldy Blog</title>
+    <link>http://localhost:1313/tags/communicate/</link>
+    <description>Recent content in Communicate on Refaldy Blog</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <copyright>© Refaldy</copyright>
+    <lastBuildDate>Sun, 24 Mar 2024 00:00:00 +0000</lastBuildDate>
+    <atom:link href="http://localhost:1313/tags/communicate/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Short Polling, Long Polling, Websocket, dan Server-Sent Events</title>
+      <link>http://localhost:1313/posts/communicate/</link>
+      <pubDate>Sun, 24 Mar 2024 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/posts/communicate/</guid>
+      <description>Pendahuluan: Dalam pengembangan aplikasi web modern, pemilihan teknik komunikasi yang tepat antara klien dan server sangat penting untuk memastikan responsivitas dan efisiensi. Dalam artikel ini, kita akan menjelajahi lebih dalam tentang berbagai teknik komunikasi di web, termasuk short polling, long polling, websocket, dan server-sent events (SSE), serta memahami kelebihan, kelemahan, dan penggunaan terbaik dari masing-masing teknik.&#xA;1. Short Polling: Short polling adalah teknik di mana klien secara berkala melakukan permintaan ke server untuk memeriksa apakah ada pembaruan data.</description>
+    </item>
+  </channel>
+</rss>
