@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html><head lang="en"><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script>
+	<meta charset="utf-8" />
+	<meta http-equiv="X-UA-Compatible" content="IE=edge"><title>Ownership Rust Dalam Relationship (Percintaan) - Refaldy Blog</title><meta name="viewport" content="width=device-width, initial-scale=1">
+	<meta name="description" content="Kalau Variable Aja Setia, Masa Kamu Nggak?" />
+	<meta property="og:image" content=""/>
+	<meta property="og:title" content="Ownership Rust Dalam Relationship (Percintaan)" />
+<meta property="og:description" content="Kalau Variable Aja Setia, Masa Kamu Nggak?" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="http://localhost:1313/posts/ownership-rust/" /><meta property="article:section" content="posts" />
+<meta property="article:published_time" content="2024-06-11T00:00:00+00:00" />
+<meta property="article:modified_time" content="2024-06-11T00:00:00+00:00" />
+<meta name="twitter:card" content="summary"/><meta name="twitter:title" content="Ownership Rust Dalam Relationship (Percintaan)"/>
+<meta name="twitter:description" content="Kalau Variable Aja Setia, Masa Kamu Nggak?"/>
+<script src="http://localhost:1313/js/feather.min.js"></script>
+	
+	
+        <link href="http://localhost:1313/css/fonts.11a1877508139eac0b5b4852ceb110c35641b3533321e66e39149e901ed5756b.css" rel="stylesheet">
+	
+
+	
+	<link rel="stylesheet" type="text/css" media="screen" href="http://localhost:1313/css/main.d902908ac6e0fab67957de5db5aea1b6455b19ae2ca98eac4c95a4a0fdc02238.css" />
+		<link id="darkModeStyle" rel="stylesheet" type="text/css" href="http://localhost:1313/css/dark.c95c5dcf5f32f8b67bd36f7dab66680e068fce2b303087294114aabf7a7c080b.css" media="(prefers-color-scheme: dark)"  />
+	
+
+	
+	
+
+	
+	
+	
+	
+</head>
+<body>
+        <div class="content"><header>
+	<div class="main">
+		<a href="http://localhost:1313/">Refaldy Blog</a>
+	</div>
+	<nav>
+		
+		<a href="/">Home</a>
+		
+		<a href="/posts">All posts</a>
+		
+		<a href="/about">About</a>
+		
+		<a href="/tags">Tags</a>
+		
+		
+	</nav>
+</header>
+
+<main>
+	<article>
+		<div class="title">
+			<h1 class="title">Ownership Rust Dalam Relationship (Percintaan)</h1>
+			<div class="meta">Posted on Jun 11, 2024</div>
+		</div>
+		
+
+		<section class="body">
+			<h3 id="ownership-di-rust-vs-percintaan-kalau-variable-aja-setia-masa-kamu-nggak">&ldquo;Ownership di Rust vs. Percintaan: Kalau Variable Aja Setia, Masa Kamu Nggak?&rdquo;</h3>
+<hr>
+<h4 id="pengantar-ownership-itu-apa-sih">Pengantar: Ownership Itu Apa Sih?</h4>
+<p>Pernah nggak sih, kamu denger soal Rust? Bukan karat yang bikin besi rusak, tapi bahasa pemrograman yang lagi ngehits karena manajemen memorinya yang kece abiz. Salah satu konsep keren di Rust adalah <em>ownership</em>. Nah, ownership ini bisa kita samain sama konsep percintaan. Kok bisa? Yuk, simak!</p>
+<h4 id="satu-owner-satu-waktu">Satu Owner Satu Waktu</h4>
+<p>Di Rust, setiap nilai (data) cuma boleh punya satu owner (pemilik) dalam satu waktu. Nah, ini mirip banget sama pacaran. Ketika kamu pacaran, cuma ada satu orang yang bisa disebut pacar. Kalau ada dua? Wah, itu namanya bukan pacaran, tapi PDKT berjamaah, sasimo!</p>
+<h4 id="borrowing-meminjam-tapi-nggak-mengambil">Borrowing: Meminjam Tapi Nggak Mengambil</h4>
+<p>Di Rust, kamu bisa &ldquo;meminjam&rdquo; nilai dari owner tanpa mengambil alih kepemilikan, namanya <em>borrowing</em>. Ada dua jenis borrowing:</p>
+<p>-<!-- raw HTML omitted --> Immutable Borrowing <!-- raw HTML omitted --> : Kamu bisa pinjem tapi nggak bisa ubah data. Mirip kayak pacar kamu pinjem jaketmu, dia nggak akan merubah jaketmu jadi hoodie.</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-rust" data-lang="rust"><span style="display:flex;"><span>  <span style="color:#66d9ef">let</span> s <span style="color:#f92672">=</span> String::from(<span style="color:#e6db74">&#34;hello&#34;</span>);
+</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">let</span> r1 <span style="color:#f92672">=</span> <span style="color:#f92672">&amp;</span>s;  <span style="color:#75715e">// pinjem tapi ga ubah
+</span></span></span></code></pre></div><p>-<!-- raw HTML omitted --> Mutable Borrowing <!-- raw HTML omitted --> : Kamu bisa pinjem dan ubah data, tapi cuma satu orang yang boleh pinjem sekaligus. Kayak pacarmu pinjem motor, boleh dibawa kemana-mana, tapi nggak boleh ada orang lain yang pinjem saat itu juga.</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-rust" data-lang="rust"><span style="display:flex;"><span>  <span style="color:#66d9ef">let</span> <span style="color:#66d9ef">mut</span> s <span style="color:#f92672">=</span> String::from(<span style="color:#e6db74">&#34;hello&#34;</span>);
+</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">let</span> r1 <span style="color:#f92672">=</span> <span style="color:#f92672">&amp;</span><span style="color:#66d9ef">mut</span> s;  <span style="color:#75715e">// pinjem dan bisa ubah
+</span></span></span></code></pre></div><h4 id="ownership-transfer-putus-dan-move-on">Ownership Transfer: Putus dan Move On</h4>
+<p>Ketika kamu menyerahkan ownership ke variabel lain, variabel pertama &ldquo;putus&rdquo; dan nggak bisa akses data lagi. Misalnya:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-rust" data-lang="rust"><span style="display:flex;"><span>  <span style="color:#66d9ef">let</span> s1 <span style="color:#f92672">=</span> String::from(<span style="color:#e6db74">&#34;hello&#34;</span>);
+</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">let</span> s2 <span style="color:#f92672">=</span> s1;  <span style="color:#75715e">// s1 putus, s2 jadian
+</span></span></span></code></pre></div><p>Bayangin, kamu punya pacar (s1), tapi sekarang dia jadi pacar orang lain (s2). Kamu nggak bisa lagi chat mesra sama dia. Move on!</p>
+<h4 id="referensi-jangan-campur-aduk">Referensi: Jangan Campur Aduk</h4>
+<p>Di Rust, kamu nggak bisa campur aduk referensi immutable dan mutable. Ini biar nggak ada data race, atau dalam bahasa percintaan, biar nggak ada drama. Misalnya:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-rust" data-lang="rust"><span style="display:flex;"><span>  <span style="color:#66d9ef">let</span> <span style="color:#66d9ef">mut</span> s <span style="color:#f92672">=</span> String::from(<span style="color:#e6db74">&#34;hello&#34;</span>);
+</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">let</span> r1 <span style="color:#f92672">=</span> <span style="color:#f92672">&amp;</span>s;       <span style="color:#75715e">// referensi immutable
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>  <span style="color:#66d9ef">let</span> r2 <span style="color:#f92672">=</span> <span style="color:#f92672">&amp;</span><span style="color:#66d9ef">mut</span> s;   <span style="color:#75715e">// ini akan menyebabkan error
+</span></span></span></code></pre></div><p>Kayak kamu nggak bisa ngedeketin orang lain saat masih punya pacar. Dramas be gone!</p>
+<h4 id="drop-akhir-hubungan">Drop: Akhir Hubungan</h4>
+<p>Di Rust, ketika owner keluar dari scope, nilai akan di-drop (dihapus dari memori). Kalau di dunia nyata, ini kayak kamu move on dari mantan. Udah nggak ada lagi rasa yang tertinggal, semua memori udah hilang.</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-rust" data-lang="rust"><span style="display:flex;"><span>  {
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">let</span> s <span style="color:#f92672">=</span> String::from(<span style="color:#e6db74">&#34;hello&#34;</span>);
+</span></span><span style="display:flex;"><span>  }  <span style="color:#75715e">// s di-drop di sini
+</span></span></span></code></pre></div><h4 id="kesimpulan-belajar-setia-dari-rust">Kesimpulan: Belajar Setia dari Rust</h4>
+<p>Kalau Rust aja bisa mengelola memori dengan setia dan aman, masa kita nggak bisa setia sama pasangan? Ownership di Rust ngajarin kita buat jaga hubungan biar nggak ada yang tersakiti. Satu hati, satu owner. Simple but deep.</p>
+<hr>
+<p>Begitu deh cerita tentang persamaan konsep ownership di Rust dan Relationship (Pacaran Ala Gen Z). Semoga bisa bantu kamu memahami Rust dengan cara yang lebih asik dan relate. Jangan lupa share ke teman-teman biar mereka juga ikutan ngerti!</p>
+
+		</section>
+
+		<div class="post-tags">
+			
+			
+			<nav class="nav tags">
+				<ul class="tags">
+					
+					<li><a href="/tags/rust">rust</a></li>
+					
+					<li><a href="/tags/ownership">ownership</a></li>
+					
+					<li><a href="/tags/memory">memory</a></li>
+					
+				</ul>
+			</nav>
+			
+			
+		</div>
+		</article>
+</main>
+<footer>
+  <div style="display:flex"><a class="soc" href="https://github.com/refaldyrk" rel="me" title="GitHub"><i data-feather="github"></i></a>
+    <a class="border"></a><a class="soc" href="https://twitter.com/nothinghehe10" rel="me" title="Twitter"><i data-feather="twitter"></i></a>
+    <a class="border"></a></div>
+  <div class="footer-info">
+    2024  © Refaldy |  <a
+      href="https://github.com/athul/archie">Archie Theme</a> | Built with <a href="https://gohugo.io">Hugo</a>
+  </div>
+</footer>
+<script>
+  feather.replace()
+</script></div>
+    </body>
+</html>

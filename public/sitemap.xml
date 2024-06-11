@@ -3,27 +3,39 @@
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
     <loc>http://localhost:1313/</loc>
-    <lastmod>2024-03-24T00:00:00+00:00</lastmod>
+    <lastmod>2024-06-11T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>http://localhost:1313/posts/asynchronous-concurrency/</loc>
-    <lastmod>2024-03-24T00:00:00+00:00</lastmod>
+    <loc>http://localhost:1313/tags/memory/</loc>
+    <lastmod>2024-06-11T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>http://localhost:1313/tags/ownership/</loc>
+    <lastmod>2024-06-11T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>http://localhost:1313/posts/ownership-rust/</loc>
+    <lastmod>2024-06-11T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>http://localhost:1313/posts/</loc>
+    <lastmod>2024-06-11T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>http://localhost:1313/tags/rust/</loc>
+    <lastmod>2024-06-11T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>http://localhost:1313/tags/</loc>
+    <lastmod>2024-06-11T00:00:00+00:00</lastmod>
   </url><url>
     <loc>http://localhost:1313/tags/communicate/</loc>
+    <lastmod>2024-03-25T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>http://localhost:1313/posts/communicate/</loc>
+    <lastmod>2024-03-25T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>http://localhost:1313/posts/asynchronous-concurrency/</loc>
     <lastmod>2024-03-24T00:00:00+00:00</lastmod>
   </url><url>
     <loc>http://localhost:1313/tags/go/</loc>
     <lastmod>2024-03-24T00:00:00+00:00</lastmod>
   </url><url>
     <loc>http://localhost:1313/tags/golang/</loc>
-    <lastmod>2024-03-24T00:00:00+00:00</lastmod>
-  </url><url>
-    <loc>http://localhost:1313/posts/</loc>
-    <lastmod>2024-03-24T00:00:00+00:00</lastmod>
-  </url><url>
-    <loc>http://localhost:1313/posts/communicate/</loc>
-    <lastmod>2024-03-24T00:00:00+00:00</lastmod>
-  </url><url>
-    <loc>http://localhost:1313/tags/</loc>
     <lastmod>2024-03-24T00:00:00+00:00</lastmod>
   </url><url>
     <loc>http://localhost:1313/posts/receiver/</loc>
